@@ -1,135 +1,94 @@
-//<p id="demo" onclick="myFunction()">Click me to change my text
-//color.</p>
+//deklarasi elemen paragraf
+const p = document.getElementsByTagName('p')
 
-//<script>
-//function myFunction() {
-//    document.getElementById("demo").style.color = "red";
-//} 
-//</script> 
+//deklarasi background container
+const bgCont = document.getElementById('container')
 
-// Deklarasi elemen paragraph dan mengembalikan htmlCollection elemen p
-const paragraph = document.getElementsByTagName('p')
 
-// ============================================================
-//                  JAWABAN SOAL POST TEST
-// ============================================================
 
-// buttonSatu untuk merubah warna background semua paragraph
-const button1 = document.getElementById('buttonSatu')   //membuat variable agar buttonSatu dapat dipanggil di event
-
-button1.addEventListener('click',function(){    // membuat event untuk buttonSatu
-
-    // karena sifatnya seperti array, namun ingin diterapkan ke semua elemen, maka menggunakan looping for
-    for(let i = 0; i <= paragraph.length; i++){
-        paragraph[i].style.backgroundColor ='darkseagreen'   // ubah bg jadi warna hijau muda
+//Button 1 digunakan untuk merubah warna background semua paragraph
+const t1 = document.getElementById('buttonSatu')   //membuat variabel buttonSatu
+t1.addEventListener('click',function(){    
+    for(let i = 0; i <= p.length; i++){
+        p[i].style.backgroundColor ='brown'   // background berubah menjadi coklat
     }
 })
 
-// ============================================================
-
-// buttonDua untuk merubah warna background color dan warna text button "Dua"
-const button2 = document.getElementById('buttonDua')
-
-button2.addEventListener('click',function(){
-    button2.style.backgroundColor ='white'   // mengubah bg button 2
-    button2.style.color ='green' //mengubah warna teks button 2
+//Button 2 digunakan untuk merubah warna background color dan warna text button "Dua"
+const t2 = document.getElementById('buttonDua')
+t2.addEventListener('click',function(){
+    t2.style.backgroundColor='grey'
+    t2.style.color='blue'
 })
 
-// ============================================================
-
-// buttonTiga untuk merubah font-family dan warna text semua paragraph
-const button3 = document.getElementById('buttonTiga')
-
-button3.addEventListener('click',function(){
-    for(let i = 0; i <= paragraph.length; i++){
-        paragraph[i].style.fontFamily = 'Candara'
-        paragraph[i].style.color ='darkgreen'
+//Button 3 digunakan untuk merubah font-family dan warna text semua paragraph
+const t3 = document.getElementById('buttonTiga')
+t3.addEventListener('click',function(){
+    for(i = 0; i <= p.length; i++){
+        p[i].style.fontFamily = 'Roman'
+        p[i].style.color ='white'
     }
 })
 
-// ============================================================
-
-// buttonEmpat untuk merubah font-size semua paragraph
-const button4 = document.getElementById('buttonEmpat')
-
-button4.addEventListener('click',function(){
-    for(let i = 0; i <= paragraph.length; i++){
-        paragraph[i].style.fontSize ='18px'
+//Button 4 digunakan untuk merubah font-size semua paragraph
+const t4 = document.getElementById('buttonEmpat')
+t4.addEventListener('click',function(){
+    for (i = 0;i<p.length;i++){
+        p[i].style.fontSize='32px'
     }
 })
 
-// ============================================================
-
-// buttonLima untuk merubah container background-color
-const button5 = document.getElementById('buttonLima')
-
-button5.addEventListener('click',function(){
-    const bgContainer = document.getElementById('container')
-    bgContainer.style.backgroundColor = 'honeydew'
+//Button5 digunakan untuk merubah container background-color
+const t5 = document.getElementById('buttonLima')
+t5.addEventListener('click',function(){
+    bgCont.style.backgroundColor = 'yellow'
 })
 
-// ============================================================
-
-// buttonEnam untuk merubah tag "p" pada class p1 menjadi "h2"
-const button6 = document.getElementById('buttonEnam')
-// deklarasi section dengan class = 'a'
+//Button6 digunakan untuk merubah tag "p" pada class p1 menjadi "h2"
+const t6 = document.getElementById('buttonEnam')
 const sectionA = document.getElementById('a')
-
-button6.addEventListener('click',function(){
-    const h2 = document.createElement('h2')
-    const textNew = document.createTextNode('Selamat datang di DojoBox.id')
-    const p1 = sectionA.getElementsByClassName('p1')[0]
-    h2.appendChild(textNew) 
-    sectionA.replaceChild(h2,p1)      
+t6.addEventListener('click',function(){
+//	const sectionA = document.getElementById('a')
+	const p1 = sectionA.querySelector('p')
+	const h2 = document.createElement('h2')
+	const teksBaru = document.createTextNode('Monggo Pinarak')
+	h2.appendChild(teksBaru)
+	sectionA.replaceChild(h2,p1)   
 })
 
-// ============================================================
-
-// buttonTujuh untuk menambahkan satu nama mentor baru dan menghapus nama mentor pertama
-const button7 = document.getElementById('buttonTujuh')
-
-button7.addEventListener('click',function(){
-    const newMentor = document.createElement('li')
-    const textNewMentor = document.createTextNode('Andika')
-    // deklarasi section dengan class = 'b'
-    const sectionB = document.querySelector('#b ul')
-    newMentor.appendChild(textNewMentor)
-    sectionB.appendChild(newMentor)
-
-    const deletedChild = document.getElementsByTagName('li')[0]
-    sectionB.removeChild(deletedChild)
+//Button7 digunakan untuk menambahkan satu nama mentor baru dan menghapus nama mentor pertama
+const t7 = document.getElementById('buttonTujuh')
+t7.addEventListener('click',function(){
+    const ul = document.querySelector('section#b ul')
+//    const li = document.querySelector('li')
+    const MentorBaru = document.createElement('li')
+    const teksMentorBaru = document.createTextNode('Andika-Mentor Baru')
+    MentorBaru.appendChild(teksMentorBaru)
+    ul.appendChild(MentorBaru)
+    const li = document.getElementsByTagName('li')[0]
+    ul.removeChild(li)
 })
 
-// ============================================================
-
-// buttonDelapan untuk mengganti text judul "DOOJOBOX.id" menjadi "Post Test"
-const button8 = document.getElementById('buttonDelapan')
-
-button8.addEventListener('click',function(){
-    
-    const title = document.getElementById('judul')
-    title.innerHTML='Post Test'
+//Button 8 digunakan untuk mengganti text judul "DOOJOBOX.id" menjadi "Post Test"
+const t8 = document.getElementById('buttonDelapan')
+t8.addEventListener('click',function(){
+	const judul = document.getElementById('judul')
+	judul.innerHTML='Post Test'
 })
 
-// ============================================================
-
-// buttonSembilan untuk menghapus link
-const button9 = document.getElementById('buttonSembilan')
-
-button9.addEventListener('click',function(){
-    const deleteLink = document.getElementsByTagName('a')[0]
-    sectionA.removeChild(deleteLink)
+//Button 9 digunakan untuk menghapus link
+const t9 = document.getElementById('buttonSembilan')
+t9.addEventListener('click',function(){
+	const hapusLink = document.getElementsByTagName('a')[0]
+	sectionA.removeChild(hapusLink)
 })
 
-// ============================================================
-
-// buttonSepuluh untuk menambah link ke github masing masing
-const button10 = document.getElementById('buttonSepuluh')
-
-button10.addEventListener('click',function(){
-    const linkGit = document.createElement('a')
-    const textLinkNew = document.createTextNode('Klik di sini, untuk akses ke GitHub Qolby :D')
-    linkGit.appendChild(textLinkNew)
-    linkGit.href = "https://github.com/qolbyiskandar/dojobox"
-    sectionA.appendChild(linkGit)
+//Button 10 digunakan untuk menambah link ke github masing masing
+const t10 = document.getElementById('buttonSepuluh')
+t10.addEventListener('click',function(){
+    const ahref = document.createElement('a')
+    const linkBaru = document.createTextNode('Untuk masuk ke Github Nanda S., silahkan pada klik link berikut')
+    ahref.appendChild(linkBaru)
+    ahref.href = "https://github.com/dudusamidi/dojobox"
+    sectionA.appendChild(ahref)
 })
