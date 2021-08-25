@@ -1,6 +1,3 @@
 # <u>Dojobox Boothcamp Class Quality Assurance</u>
-Dojobox Project
-
-Untuk pembelajaran manual testing dan automation testing dojobox.id
-
-
+<h2>Sprint 3 (Automation) - Javascript: DOM</h2> <br>
+<h3>Post-test Sprint 3 Automation</h3>
